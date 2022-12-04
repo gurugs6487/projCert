@@ -3,18 +3,6 @@
   become: true
 
   tasks:
-    - name: Install Dependency
-      apt: 
-        name: "{{item}}"
-        state: present
-        update_cache: true
-      loop: 
-        - apt-transport-https
-        - ca-certificates
-        - curl
-        - gnupg_agent
-        - software-properties-common
-
     - name: Add Docker GPG apt Key
       apt_key: 
         url: https://download.docker.com/linux/ubuntu/gpg
