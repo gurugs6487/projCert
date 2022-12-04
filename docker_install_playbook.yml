@@ -4,11 +4,11 @@
 
   tasks:
     - name: Install Dependency
-        apt:
+        apt: 
           name: "{{item}}"
           state: present
           update_cache: true
-        loop:
+        loop: 
           - apt-transport-https
           - ca-certificates
           - curl
@@ -16,21 +16,21 @@
           - software-properties-common
 
     - name: Add Docker GPG apt Key
-        apt_key:
+        apt_key: 
           url: https://download.docker.com/linux/ubuntu/gpg
           state: present
 
     - name: Add Docker Repository
-        apt_repository:
+        apt_repository: 
           repo: deb https://download.docker.com/linux/ubuntu bionic stable
           state: present
 
     - name: Update apt and install docker-ce
-        apt:
+        apt: 
           name: "{{item}}"
           state: latest
           update_cache: yes
-        loop:
+        loop: 
           - docker-ce
           - docker-ce-cli
           - containerd.io
