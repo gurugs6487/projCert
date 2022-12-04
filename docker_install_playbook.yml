@@ -4,16 +4,16 @@
 
   tasks:
     - name: Install Dependency
-        apt: 
-          name: "{{item}}"
-          state: present
-          update_cache: true
-        loop: 
-          - apt-transport-https
-          - ca-certificates
-          - curl
-          - gnupg_agent
-          - software-properties-common
+      apt: 
+        name: "{{item}}"
+        state: present
+        update_cache: true
+      loop: 
+        - apt-transport-https
+        - ca-certificates
+        - curl
+        - gnupg_agent
+        - software-properties-common
 
     - name: Add Docker GPG apt Key
         apt_key: 
@@ -26,14 +26,14 @@
           state: present
 
     - name: Update apt and install docker-ce
-        apt: 
-          name: "{{item}}"
-          state: latest
-          update_cache: yes
-        loop: 
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
+      apt: 
+        name: "{{item}}"
+        state: latest
+        update_cache: yes
+      loop: 
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
     
     - name: Make Sure Docker Started
         service:
