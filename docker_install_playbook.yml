@@ -1,13 +1,13 @@
 ---
 - hosts: all
-  become: true
+  become: yes
 
   tasks:
     - name: Install aptitude
       apt:
         name: aptitude
         state: latest
-        update_cache: true
+        update_cache: yes
 
     - name: Install required system packages
       apt:
@@ -20,7 +20,7 @@
           - virtualenv
           - python3-setuptools
         state: latest
-        update_cache: true
+        update_cache: yes
 
     - name: Add Docker GPG apt Key
       apt_key:
